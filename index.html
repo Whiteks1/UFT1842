@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>Examen Práctico UF1842</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <!-- jQuery y jQuery UI -->
-        <link rel="stylesheet"
-            href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Examen Práctico UF1842</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- jQuery y jQuery UI -->
+    <link rel="stylesheet"
+        href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
     <div class="layout">
         <header class="cabecera">
             <h1>Examen Práctico UF1842</h1>
-            <img id="foto-zoom" class="zoomable" src="https://github.com/Whiteks1/UFT1842/blob/main/media/imagen.png" alt="Imagen para efecto zoom">
+            <img id="foto-zoom" class="zoomable" src="media/imagen.png" alt="Imagen para efecto zoom">
         </header>
 
         <div class="main-content">
@@ -46,7 +47,7 @@
                             <div class="form-field">
                                 <label for="estadoCivil" class="req">ESTADO CIVIL</label>
                                 <select id="estadoCivil" name="estadoCivil" required>
-                                    <option value selected disabled>Selecciona…</option>
+                                    <option value="" selected disabled>Selecciona…</option>
                                     <option value="Soltero">Soltero</option>
                                     <option value="Casado">Casado</option>
                                     <option value="Divorciado">Divorciado</option>
@@ -104,63 +105,23 @@
                     <div class="media-container">
                         <div class="media-box">
                             <h4>PNG</h4>
-                            <img class="media-thumb" src="https://github.com/Whiteks1/UFT1842/blob/main/img/cube.png" height="75" alt="Imagen PNG">
+                            <img class="media-thumb" src="img/cube.png" height="75" alt="Imagen PNG">
                         </div>
 
                         <div class="media-box">
                             <h4>JPG</h4>
-                            <img class="media-thumb" src="https://github.com/Whiteks1/UFT1842/blob/main/img/ilustracion.jpg" height="75" alt="Imagen JPG">
+                            <img class="media-thumb" src="img/ilustracion.jpg" height="75" alt="Imagen JPG">
                         </div>
 
                         <div class="media-box">
                             <h4>GIF</h4>
-                            <img class="media-thumb" src="https://github.com/Whiteks1/UFT1842/blob/main/img/optic.gif" height="75" alt="Imagen GIF">
+                            <img class="media-thumb" src="img/optic.gif" height="75" alt="Imagen GIF">
                         </div>
 
                         <div class="media-box">
                             <h4>SVG</h4>
-                            <img class="media-thumb" src="https://github.com/Whiteks1/UFT1842/blob/main/img/imagen.svg" alt="Ilustración hero en SVG">
+                            <img class="media-thumb" src="img/imagen.svg" alt="Ilustración hero en SVG">
                         </div>
-                    </div>
-
-                    <!-- 10.2 Vídeos -->
-                    <h3>10.2 Vídeos</h3>
-                    <div class="videos">
-                        <div>
-                            <h4>Vídeo RTVE: Nueva imagen de la Web (1 min.)</h4>
-                            <div class="video-container">
-                                <iframe src="https://secure-embed.rtve.es/play/videos/rtve-instituto/ficcion-sonora-alguien-sabe-quien-hizo-cap-9/16621796/" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4>YouTube (iframe)</h4>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/MkA3sLyEWdU?controls=1&mute=1&loop=1&playlist=MkA3sLyEWdU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4>Vimeo (object)</h4>
-                            <div class="video-container">
-                                <object data="https://player.vimeo.com/video/1109333269?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&controls=1&loop=1&muted=1"></object>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10.3 Audio -->
-                    <h3>10.3 Canal de audio</h3>
-                    <div>
-                        <audio controls>
-                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                            Tu navegador no soporta audio.
-                        </audio>
-                    </div>
-
-                    <!-- 10.4 Animación -->
-                    <h3>10.4 Animación</h3>
-                    <div class="animation-container">
-                        <div class="animacion-75" aria-label="Animación de carga"></div>
                     </div>
 
                     <!-- 10.5 Mapa de imagen -->
@@ -198,7 +159,6 @@
         </div>
     </div>
 
-
-        <script src="js/script.js"></script>
-    </body>
+    <script src="js/script.js"></script>
+</body>
 </html>

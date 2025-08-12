@@ -10,7 +10,7 @@ Examen UF1842 - script unificado
   Requisitos:
   - jQuery 3.x o superior cargado antes de este script.
   - Estructura HTML con:
-       * Formulario con id="datosPersonales"
+       * Formulario con id="datosPersonales"p
        * Botones con id="enviar_datos" y id="mostrar_datos"
        * Elementos para modal con id="modal-datos" y clase="cerrar"
        * Imagen con clase="zoomable"
