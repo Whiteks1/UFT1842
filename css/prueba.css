@@ -1,0 +1,188 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cabecera {
+  text-align: center; /* centrado de la imagen */
+  padding: 0; /* sin relleno extra */
+  background: none; /* sin fondo */
+  border: none; /* sin borde */
+  box-shadow: none; /* sin sombra */
+}
+
+.zoomable {
+  width: 20%; /* ocupa el ancho disponible */
+  height: auto; /* mantiene proporción */
+  max-width: 100%; /* evita desbordar */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.zoomable:hover {
+  transform: scale(1.05); /* zoom suave */
+}
+
+.formulario,
+.juego,
+.multimedia {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-contenido {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cerrar:hover {
+  color: black;
+}
+
+/* Formulario */
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+  background-color: #45a049;
+}
+
+/* Juego */
+.juego input {
+  padding: 10px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.juego button {
+  padding: 10px 20px;
+}
+
+#mensaje-juego {
+  margin-top: 15px;
+  font-weight: bold;
+  min-height: 30px;
+}
+
+/* Multimedia */
+.multimedia div {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.multimedia img,
+.multimedia embed,
+.multimedia iframe,
+.multimedia object {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Texto que crece */
+#texto-crece {
+  padding: 15px;
+  background-color: #e9f7ef;
+  border-left: 4px solid #4caf50;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Validación */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+}
+/* Animación simple: spinner circular de 75px */
+.animacion-75 {
+  width: 75px;
+  height: 75px;
+  border: 6px solid #e5e7eb; /* anillo gris claro */
+  border-top-color: #7c3aed; /* color activo */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

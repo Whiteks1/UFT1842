@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Examen Práctico UF1842</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <!-- jQuery y jQuery UI -->
+        <link rel="stylesheet"
+            href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    </head>
+<body>
+    <div class="layout">
+        <header class="cabecera">
+            <h1>Examen Práctico UF1842</h1>
+            <img id="foto-zoom" class="zoomable" src="/media/imagen.png" alt="Imagen para efecto zoom">
+        </header>
+
+        <div class="main-content">
+            <div>
+                <!-- 9.5.2 Texto que crece -->
+                <p id="texto-crece">Haz clic en este texto para verlo crecer.</p>
+
+                <!-- Formulario -->
+                <section class="formulario" aria-labelledby="titulo-form">
+                    <h2 id="titulo-form">Ejercicio de examen 9.4</h2>
+
+                    <form name="datosPersonales" id="datosPersonales" method="post" action>
+                        <!-- Datos personales -->
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="nombre" class="req">NOMBRE</label>
+                                <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+" autocomplete="given-name" aria-describedby="ayuda-nombre">
+                                <small id="ayuda-nombre" class="help">Solo letras y espacios.</small>
+                                <p class="error-msg" aria-live="polite"></p>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="apellidos" class="req">APELLIDOS</label>
+                                <input type="text" id="apellidos" name="apellidos" required autocomplete="family-name">
+                                <p class="error-msg" aria-live="polite"></p>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="estadoCivil" class="req">ESTADO CIVIL</label>
+                                <select id="estadoCivil" name="estadoCivil" required>
+                                    <option value selected disabled>Selecciona…</option>
+                                    <option value="Soltero">Soltero</option>
+                                    <option value="Casado">Casado</option>
+                                    <option value="Divorciado">Divorciado</option>
+                                    <option value="Viudo">Viudo</option>
+                                </select>
+                                <p class="error-msg" aria-live="polite"></p>
+                            </div>
+                        </div>
+
+                        <!-- Idiomas -->
+                        <fieldset class="group">
+                            <legend class="req">IDIOMAS (marca al menos uno)</legend>
+                            <div class="checks">
+                                <label class="check"><input type="checkbox" name="idiomas" id="idioma1" value="Castellano"> Castellano</label>
+                                <label class="check"><input type="checkbox" name="idiomas" id="idioma2" value="Inglés"> Inglés</label>
+                                <label class="check"><input type="checkbox" name="idiomas" id="idioma3" value="Francés"> Francés</label>
+                            </div>
+                            <p class="error-msg" aria-live="polite"></p>
+                        </fieldset>
+
+                        <!-- Profesión -->
+                        <fieldset class="group">
+                            <legend class="req">PROFESIÓN</legend>
+                            <div class="radios">
+                                <label class="radio"><input type="radio" name="profesion" id="profesion0" value="Estudiante"> Estudiante</label>
+                                <label class="radio"><input type="radio" name="profesion" id="profesion1" value="Autónomo" required> Autónomo</label>
+                                <label class="radio"><input type="radio" name="profesion" id="profesion2" value="Cuenta ajena"> Trabajador por cuenta ajena</label>
+                                <label class="radio"><input type="radio" name="profesion" id="profesion3" value="Desempleado"> Desempleado</label>
+                                <label class="radio"><input type="radio" name="profesion" id="profesion4" value="Jubilado"> Jubilado</label>
+                            </div>
+                            <p class="error-msg" aria-live="polite"></p>
+                        </fieldset>
+
+                        <!-- Comentarios -->
+                        <div class="form-field">
+                            <label for="comentarios">COMENTARIOS</label>
+                            <textarea id="comentarios" name="comentarios" rows="5" autocomplete="off" placeholder="Añade información adicional (opcional)"></textarea>
+                            <p class="error-msg" aria-live="polite"></p>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="button-container">
+                            <input type="submit" name="enviar_datos" id="enviar_datos" value="Enviar">
+                            <input type="button" name="mostrar_datos" id="mostrar_datos" value="Mostrar">
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Parte 5: Contenido multimedia -->
+                <section class="multimedia seccion">
+                    <h2>10 Inserción de medios</h2>
+
+                    <!-- 10.1 Imágenes -->
+                    <h3>10.1 Imágenes</h3>
+                    <div class="media-container">
+                        <div class="media-box">
+                            <h4>PNG</h4>
+                            <img class="media-thumb" src="/img/cube.png" height="75" alt="Imagen PNG">
+                        </div>
+
+                        <div class="media-box">
+                            <h4>JPG</h4>
+                            <img class="media-thumb" src="/img/ilustracion.jpg" height="75" alt="Imagen JPG">
+                        </div>
+
+                        <div class="media-box">
+                            <h4>GIF</h4>
+                            <img class="media-thumb" src="/img/optic.gif" height="75" alt="Imagen GIF">
+                        </div>
+
+                        <div class="media-box">
+                            <h4>SVG</h4>
+                            <img class="media-thumb" src="/img/imagen.svg" alt="Ilustración hero en SVG">
+                        </div>
+                    </div>
+
+                    <!-- 10.2 Vídeos -->
+                    <h3>10.2 Vídeos</h3>
+                    <div class="videos">
+                        <div>
+                            <h4>Vídeo RTVE: Nueva imagen de la Web (1 min.)</h4>
+                            <div class="video-container">
+                                <iframe src="https://secure-embed.rtve.es/play/videos/rtve-instituto/ficcion-sonora-alguien-sabe-quien-hizo-cap-9/16621796/" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>YouTube (iframe)</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/MkA3sLyEWdU?controls=1&mute=1&loop=1&playlist=MkA3sLyEWdU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Vimeo (object)</h4>
+                            <div class="video-container">
+                                <object data="https://player.vimeo.com/video/1109333269?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&controls=1&loop=1&muted=1"></object>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10.3 Audio -->
+                    <h3>10.3 Canal de audio</h3>
+                    <div>
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            Tu navegador no soporta audio.
+                        </audio>
+                    </div>
+
+                    <!-- 10.4 Animación -->
+                    <h3>10.4 Animación</h3>
+                    <div class="animation-container">
+                        <div class="animacion-75" aria-label="Animación de carga"></div>
+                    </div>
+
+                    <!-- 10.5 Mapa de imagen -->
+                    <h3>10.5 Mapa de imagen</h3>
+                    <div class="image-map-container">
+                        <img src="/img/map.jpg" usemap="#mapa-imagen" width="400" height="200" alt="Imagen mapeada">
+                        <map name="mapa-imagen">
+                            <area shape="rect" coords="0,0,150,75" href="https://www.google.com" alt="Google">
+                            <area shape="rect" coords="150,0,300,75" href="https://www.wikipedia.org" alt="Wikipedia">
+                            <area shape="rect" coords="0,75,150,150" href="https://www.mozilla.org" alt="Mozilla">
+                            <area shape="rect" coords="150,75,300,150" href="https://www.openai.com" alt="OpenAI">
+                        </map>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 9.6 Juego adivinar número -->
+            <aside>
+                <div class="juego">
+                    <h3>9.6 Juego: Adivina el número</h3>
+                    <input type="number" id="intento" placeholder="Escribe un número (1-100)" min="1" max="100">
+                    <button id="probar" type="button">Probar</button>
+                    <p id="mensaje-juego"></p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Modal para mostrar datos del formulario -->
+        <div id="modal-datos" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar">&times;</span>
+                <h2>Datos del Formulario</h2>
+                <div id="datos-formulario"></div>
+            </div>
+        </div>
+    </div>
+
+
+        <script src="js/script.js"></script>
+    </body>
+</html>

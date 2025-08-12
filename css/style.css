@@ -1,0 +1,618 @@
+/* =========================
+0) Variables y base
+========================= */
+:root {
+  --overlay: rgba(0, 40, 32, 0.92); /* Verde más profundo */
+  --verde-oscuro: #004d40; /* Verde más intenso */
+  --cian-borde: #4db6ac; /* Cian más vibrante */
+  --cian-claro: #80cbc4; /* Cian suavizado */
+  --bg-grad-a: #e0f2f1; /* Tonos más armoniosos */
+  --bg-grad-b: #b2dfdb;
+  --bg-grad-c: #80cbc4;
+  --sombra: 0 6px 25px rgba(0, 40, 32, 0.15);
+  --sombra-hover: 0 10px 35px rgba(0, 40, 32, 0.25);
+  --radio: 18px;
+  --radio-sm: 10px;
+  --esp: 28px;
+  --transicion: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --texto: #263238; /* Texto más oscuro */
+  --borde-suave: #cfd8dc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-grad-a),
+    var(--bg-grad-b),
+    var(--bg-grad-c)
+  );
+  color: var(--texto);
+  line-height: 1.6;
+  padding: var(--esp);
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--esp);
+}
+
+/* =========================
+1) Tipografía y encabezados
+========================= */
+h1,
+h2,
+h3 {
+  color: var(--verde-oscuro);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+
+h1:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--verde-oscuro);
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--cian-claro);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* =========================
+2) Contenedores principales
+========================= */
+header.cabecera {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.seccion {
+  background: #fff;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 2.5rem;
+  transition: var(--transicion);
+  margin-bottom: 2rem;
+}
+
+.seccion:hover {
+  box-shadow: var(--sombra-hover);
+}
+
+/* Utilidades */
+.cf::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.mt {
+  margin-top: 1.5rem;
+}
+
+.mb {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+3) Imagen que crece (9.5.1)
+========================= */
+.zoomable {
+  width: min(100%, 250px);
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+}
+
+.zoomable:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+4) Texto que crece (9.5.2)
+========================= */
+#texto-crece {
+  background: var(--cian-claro);
+  padding: 1.2rem 1.5rem;
+  border-radius: var(--radio-sm);
+  border-left: 5px solid var(--verde-oscuro);
+  margin: 1.5rem auto;
+  cursor: pointer;
+  transition: var(--transicion);
+  max-width: 800px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#texto-crece:hover {
+  background: #9fd1cb;
+  transform: translateY(-3px);
+}
+
+/* =========================
+5) Formularios
+ ========================= */
+.formulario {
+  background: #f8f9fa;
+  padding: 1.8rem;
+  border-radius: var(--radio);
+  margin: 2rem 0;
+  box-shadow: var(--sombra);
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+/* Controles */
+.formulario input[type="text"],
+.formulario select,
+.formulario textarea,
+.juego input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radio-sm);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: var(--transicion);
+  background: #fff;
+}
+
+.formulario input[type="text"]:focus,
+.formulario select:focus,
+.formulario textarea:focus,
+.juego input:focus {
+  border-color: var(--verde-oscuro);
+  box-shadow: 0 0 0 3px rgba(0, 105, 92, 0.1);
+  outline: none;
+}
+
+.checkbox-group,
+.radio-group {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background: #f0f8ff;
+  border-radius: var(--radio-sm);
+}
+
+/* Botonera */
+.button-container {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: var(--radio-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+input[type="submit"],
+.juego button {
+  background: var(--verde-oscuro);
+  color: #fff;
+}
+
+input[type="submit"]:hover,
+.juego button:hover {
+  background: #004d40;
+  transform: translateY(-2px);
+}
+
+input[type="button"] {
+  background: var(--cian-borde);
+  color: #004d40;
+}
+
+input[type="button"]:hover {
+  background: #4db6ac;
+  transform: translateY(-2px);
+}
+
+.formulario textarea {
+  resize: vertical;
+}
+
+/* Placeholders */
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+  color: #9aa0a6;
+}
+
+/* ===== Estilos para las nuevas clases del HTML ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.form-field {
+  display: block;
+}
+
+.help {
+  display: block;
+  font-size: 0.85rem;
+  color: #5f6b6f;
+  margin-top: 0.25rem;
+}
+
+.error-msg {
+  min-height: 1.25rem;
+  font-size: 0.9rem;
+  color: #b00020;
+  margin-top: 0.3rem;
+}
+
+/* Fieldsets agrupados */
+.group {
+  margin-top: 1.4rem;
+  padding: 1.2rem;
+  border: 1px dashed var(--cian-borde);
+  border-radius: var(--radio-sm);
+  background: #f8ffff;
+}
+
+.group legend {
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  padding: 0 0.6rem;
+}
+
+.checks,
+.radios {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.check,
+.radio {
+  padding: 0.3rem 0;
+}
+
+/* Asterisco para requeridos */
+.req::after {
+  content: " *";
+  color: #b00020;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+          6) Juego
+           ========================= */
+.juego {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  font-size: 1rem;
+  margin: 2rem 0;
+}
+
+#mensaje-juego {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: #c8e6c9;
+  border-radius: var(--radio-sm);
+  font-weight: 500;
+  text-align: center;
+}
+
+.juego input,
+.juego button {
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
+.juego button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.mayor {
+  color: #ff5722; /* Naranja */
+  font-weight: bold;
+}
+
+.menor {
+  color: #3f51b5; /* Azul */
+  font-weight: bold;
+}
+
+.secreto {
+  color: #4caf50; /* Verde */
+  font-weight: bold;
+}
+
+
+/* =========================
+7) Multimedia (imágenes, vídeo, audio)
+========================= */
+
+/* Contenedor de medios */
+.media-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.media-box {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: var(--transicion);
+}
+
+.media-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Imágenes */
+.media-thumb {
+  height: 100px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Vídeos */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.video-container {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: var(--radio-sm);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.video-container iframe,
+.video-container object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Audio */
+.multimedia audio {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 1.2rem auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+  border-radius: var(--radio-sm);
+}
+
+/* Mapa de imagen */
+.image-map-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.image-map-container img {
+  max-width: 100%;
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra);
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================
+8) Animación (10.4) –  75px
+========================= */
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.animacion-75 {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border: 6px solid #e5e7eb; /* anillo base */
+  border-top-color: var(--verde-oscuro);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Primer aro externo */
+.animacion-75:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--verde-oscuro);
+  border-right-color: var(--cian-borde);
+  animation: spin 3s linear infinite reverse;
+  filter: blur(2px);
+}
+
+/* Segundo aro externo */
+.animacion-75:after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--cian-borde);
+  border-left-color: var(--verde-oscuro);
+  animation: spin 4s linear infinite;
+  filter: blur(3px);
+  opacity: 0.7;
+}
+
+/* Animación base */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+  9) Modal
+  ========================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.modal-contenido {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  border-radius: var(--radio);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: modalIn 0.4s ease;
+}
+
+@keyframes modalIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #777;
+  cursor: pointer;
+  transition: var(--transicion);
+  line-height: 1;
+}
+
+.cerrar:hover {
+  color: var(--verde-oscuro);
+  transform: scale(1.2);
+}
+
+/* =========================
+10) Layout y Responsive
+========================= */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .seccion {
+    padding: 1.5rem;
+  }
+
+  .multimedia audio {
+    width: 100%;
+  }
+
+  .zoomable {
+    width: 100%;
+  }
+
+  .videos {
+    grid-template-columns: 1fr;
+  }
+}
